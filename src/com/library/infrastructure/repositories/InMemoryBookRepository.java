@@ -22,4 +22,9 @@ public class InMemoryBookRepository implements BookRepository {
     public void save(Book book) {
         books.put(book.getId(), book);
     }
+
+    @Override
+    public List<Book> findAll() {
+        return new ArrayList<>(books.values());
+    }
 }
