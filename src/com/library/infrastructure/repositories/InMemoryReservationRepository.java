@@ -10,13 +10,18 @@ public class InMemoryReservationRepository implements ReservationRepository {
 
     @Override
     public void save(Reservation reservation) {
-        reservations.put(reservation.getId(), reservation);
+        reservations.put(reservation.getBookId(), reservation);
+    }
+
+    @Override
+    public void remove(Reservation reservation) {
+        reservations.remove(reservation.getBookId());
     }
 
     @Override
     public Optional<Reservation> findByMemberId(int memberId) {
         return reservations.values().stream()
-                .filter(reservation -> reservation.getMember().getId() == memberId)
+                .filter(reservation -> reservation.getMemberId() == memberId)
                 .findFirst();
     }
 }

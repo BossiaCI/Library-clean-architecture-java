@@ -57,7 +57,7 @@ public class Main {
         inventoryRepository.save(inventory2);
         
         // User reserving a book
-        Reservation reservation = new Reservation(user1.getId(), book1.getId());
+        Reservation reservation = new Reservation(1, user1.getId(), book1.getId());
         reservationRepository.save(reservation);
         
         // Adding Reviews
